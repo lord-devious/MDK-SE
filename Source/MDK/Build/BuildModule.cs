@@ -190,6 +190,22 @@ namespace MDK.Build
             try
             {
                 var script = await composer.GenerateAsync(composition, config).ConfigureAwait(false);
+                if (script.Length >= 100000)
+                {
+                    /*ErrorTask lengthWarning = new ErrorTask()
+                    {
+                        ErrorCategory = TaskErrorCategory.Warning,
+                        CanDelete = true,
+                        Text = String.Format(Text.MDKPackage_Deploy_Too_Long_Warning, script.Length),
+                        Document = SelectedProjectFileName,
+                        Category = TaskCategory.BuildCompile
+                    };*/
+                    VsShellUtilities.ShowMessageBox(Package, String.Format(Text.MDKPackage_Deploy_Too_Long_Warning, script.Length), 
+                        Text.MDKPackage_Deploy_Warning_Title, Microsoft.VisualStudio.Shell.Interop.OLEMSGICON.OLEMSGICON_WARNING, 
+                        Microsoft.VisualStudio.Shell.Interop.OLEMSGBUTTON.OLEMSGBUTTON_OK, 
+                        Microsoft.VisualStudio.Shell.Interop.OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+                    await Console.Out.WriteLineAsync(String.Format(Text.MDKPackage_Deploy_Too_Long_Warning, script.Length));
+                }
                 return script;
             }
             catch (Exception e)

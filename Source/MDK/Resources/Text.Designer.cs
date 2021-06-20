@@ -476,11 +476,29 @@ namespace MDK.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deploy exceeds in-game script character limit of 100,000 characters. Your script has a length of {0:N0} characters..
+        /// </summary>
+        internal static string MDKPackage_Deploy_Too_Long_Warning {
+            get {
+                return ResourceManager.GetString("MDKPackage_Deploy_Too_Long_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An unexpected error occurred during the attempt to deploy..
         /// </summary>
         internal static string MDKPackage_Deploy_UnexpectedError {
             get {
                 return ResourceManager.GetString("MDKPackage_Deploy_UnexpectedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deployment Warning.
+        /// </summary>
+        internal static string MDKPackage_Deploy_Warning_Title {
+            get {
+                return ResourceManager.GetString("MDKPackage_Deploy_Warning_Title", resourceCulture);
             }
         }
         

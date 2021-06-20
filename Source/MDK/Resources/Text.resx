@@ -144,6 +144,12 @@
   <data name="MDKPackage_Deploy_DeploymentComplete" xml:space="preserve">
     <value>Deployment Complete</value>
   </data>
+  <data name="MDKPackage_Deploy_Too_Long_Warning" xml:space="preserve">
+    <value>Deploy exceeds in-game script character limit of 100,000 characters. Your script has a length of {0:N0} characters.</value>
+  </data>
+  <data name="MDKPackage_Deploy_Warning_Title" xml:space="preserve">
+    <value>Deployment Warning</value>
+  </data>
   <data name="MDKPackage_Deploy_NoMDKProjects" xml:space="preserve">
     <value>There were no deployable scripts in this solution.</value>
   </data>
