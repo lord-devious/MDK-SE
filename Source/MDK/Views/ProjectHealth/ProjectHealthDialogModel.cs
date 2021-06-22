@@ -178,7 +178,6 @@ namespace MDK.Views.ProjectHealth
                 OkText = "Close";
                 SaveAndCloseCommand.IsEnabled = true;
                 SendMessage(Text.ProjectHealthDialogModel_RunUpgrades_UpgradeComplete, Text.ProjectHealthDialogModel_RunUpgrades_Description, MessageEventType.Info);
-                SaveAndClose();
             }
             catch (Exception e)
             {

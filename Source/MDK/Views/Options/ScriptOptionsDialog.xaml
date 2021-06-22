@@ -35,12 +35,22 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0" Target="{Binding ElementName=ProjectComboBox}" Margin="2">Project</Label>
         <TextBlock Text="{Binding ActiveProject.Name}" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" />
-        <Label Grid.Column="0" Grid.Row="1" Target="{Binding ElementName=OutputPathFolderBox}" Margin="2">Script Output Path</Label>
+        <Label Grid.Column="0" Grid.Row="1" Target="{Binding ElementName=GamePathFolderBox}" Margin="2">Game Path</Label>
         <views:FolderBox Grid.Column="1" Grid.Row="1"
+                         x:Name="GamePathFolderBox"
+                         Margin="2"
+                         VerticalAlignment="Center"
+                         SelectedFolder="{Binding ActiveProject.Paths.GameBinPath}"
+                         ToolTip="The path where game binary references are"
+                         DialogTitle="Please select the Space Engineers bin folder" />
+
+        <Label Grid.Column="0" Grid.Row="2" Target="{Binding ElementName=OutputPathFolderBox}" Margin="2">Script Output Path</Label>
+        <views:FolderBox Grid.Column="1" Grid.Row="2"
                          x:Name="OutputPathFolderBox"
                          Margin="2"
                          VerticalAlignment="Center"
@@ -48,8 +58,8 @@
                          ToolTip="The path where the final ingame scripts are generated"
                          DialogTitle="Please select the script output folder" />
 
-        <Label Grid.Column="0" Grid.Row="2" Target="{Binding ElementName=TrimTypesCheckBox}" Margin="2">Trim Unused Types</Label>
-        <StackPanel Grid.Column="1" Grid.Row="2" 
+        <Label Grid.Column="0" Grid.Row="3" Target="{Binding ElementName=TrimTypesCheckBox}" Margin="2">Trim Unused Types</Label>
+        <StackPanel Grid.Column="1" Grid.Row="3" 
                     Margin ="2,2,2,16">
 
             <CheckBox x:Name="TrimTypesCheckBox" 
@@ -60,8 +70,8 @@
             </CheckBox>
         </StackPanel>
 
-        <Label Grid.Column="0" Grid.Row="3" Target="{Binding ElementName=MinifyCheckBox}" Margin="2">Minifier</Label>
-        <StackPanel Grid.Column="1" Grid.Row="3" 
+        <Label Grid.Column="0" Grid.Row="4" Target="{Binding ElementName=MinifyCheckBox}" Margin="2">Minifier</Label>
+        <StackPanel Grid.Column="1" Grid.Row="4" 
                     Margin ="2,2,2,16">
 
             <ComboBox x:Name="MinifyLevelComboBox" VerticalAlignment="Center" Margin="2,2,0,2"
@@ -72,8 +82,8 @@
                   SelectedValue="{Binding SelectedMinifier}" />
         </StackPanel>
 
-        <Label Grid.Column="0" Grid.Row="4" Target="{Binding ElementName=ExcludeFromDeployAllCheckBox}" Margin="2">Exclude from Deploy All</Label>
-        <StackPanel Grid.Column="1" Grid.Row="4" 
+        <Label Grid.Column="0" Grid.Row="5" Target="{Binding ElementName=ExcludeFromDeployAllCheckBox}" Margin="2">Exclude from Deploy All</Label>
+        <StackPanel Grid.Column="1" Grid.Row="5" 
                     Margin ="2,2,2,16">
 
             <CheckBox x:Name="ExcludeFromDeployAllCheckBox" 
@@ -84,7 +94,7 @@
             </CheckBox>
         </StackPanel>
 
-        <views:ButtonBar Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="5" VerticalAlignment="Bottom">
+        <views:ButtonBar Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="6" VerticalAlignment="Bottom">
             <Button IsDefault="True" MinWidth="96" Margin="2,2,8,2" Command="{Binding SaveAndCloseCommand}">Update Options</Button>
             <Button IsCancel="True" MinWidth="96" Margin="0,2,2,2" Command="{Binding CancelCommand}">Cancel</Button>
         </views:ButtonBar>

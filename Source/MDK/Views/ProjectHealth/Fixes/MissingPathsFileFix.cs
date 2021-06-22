@@ -22,7 +22,14 @@ namespace MDK.Views.ProjectHealth.Fixes
             foreach (var reference in MDKProjectPaths.DefaultAnalyzerReferences)
                 analysis.Properties.Paths.AnalyzerReferences.Add(reference);
             analysis.Properties.Paths.Save();
-            status.Description = "Restored missing paths file";
+            var sb = new StringBuilder();
+            sb.Append("Restored missing paths file");
+            if (String.IsNullOrWhiteSpace(analysis.Properties.Paths.GameBinPath))
+            {
+                sb.Append(" -- update game path in MDK Options dialog");
+            }
+
+            status.Description = sb.ToString();
         }
     }
 }

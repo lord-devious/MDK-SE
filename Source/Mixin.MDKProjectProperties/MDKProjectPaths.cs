@@ -393,7 +393,8 @@ namespace Malware.MDKServices
                     groupElement.Add(gameBinPathElement);
                 }
 
-                gameBinPathElement.Value = GameBinPath;
+                gameBinPathElement.Value = GameBinPath ?? "";
+                
 
                 if (installPathElement == null)
                 {
